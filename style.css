@@ -1,0 +1,331 @@
+/* ==========================================================================
+   Meu primeiro portfólio — Programa Trilhas (Desenvolvimento Front-end)
+   Estilos baseados no design do Figma "Portfolio / Front-end"
+   Frame de referência: Desktop 1440 x 1024
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variáveis (cores, medidas e fonte retiradas do Figma)
+   -------------------------------------------------------------------------- */
+:root {
+  --cor-texto: #1e1e1e;
+  --cor-borda: #767676;
+  --cor-borda-suave: rgba(0, 0, 0, 0.12);
+  --cor-superficie: rgba(0, 0, 0, 0.05);
+  --cor-superficie-hover: rgba(0, 0, 0, 0.1);
+
+  --fonte: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --raio: 8px;
+  --espaco-xs: 8px;
+  --espaco-sm: 16px;
+  --espaco-md: 24px;
+
+  --largura-inicio: 588px; /* coluna da página inicial (botões de 540px + 24px de cada lado) */
+  --largura-conteudo: 800px; /* coluna das páginas "Sobre mim" e "Projetos" */
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset básico
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #ffffff;
+  -webkit-text-size-adjust: 100%;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   3. Página (fundo degradê + centralização do conteúdo)
+   -------------------------------------------------------------------------- */
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--espaco-sm) 0;
+  font-family: var(--fonte);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--cor-texto);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* O fundo fica "fixo" atrás do conteúdo, inclusive no celular */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: #ffffff url("../assets/img/fundo.jpg") center / cover no-repeat;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--largura-conteudo);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container--inicio {
+  max-width: var(--largura-inicio);
+}
+
+/* --------------------------------------------------------------------------
+   4. Perfil (foto, nome e descrição) — se repete em todas as páginas
+   -------------------------------------------------------------------------- */
+.perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-xs);
+  padding: var(--espaco-md);
+  text-align: center;
+  text-decoration: none;
+}
+
+.perfil__foto {
+  width: 114px; /* 112px de imagem + 1px de borda de cada lado */
+  height: 114px;
+  border-radius: 50%;
+  border: 1px solid var(--cor-borda);
+  object-fit: cover;
+  background-color: #ffffff;
+}
+
+a.perfil:hover .perfil__nome {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   5. Botões da página inicial
+   -------------------------------------------------------------------------- */
+.botoes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+  padding: var(--espaco-md);
+}
+
+.botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 56px;
+  padding: 15px 23px; /* 16px/24px do Figma menos 1px da borda */
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background-color: var(--cor-superficie);
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.botao:hover {
+  background-color: var(--cor-superficie-hover);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   6. Texto da página "Sobre mim"
+   -------------------------------------------------------------------------- */
+.sobre {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   7. Lista de projetos (cards)
+   -------------------------------------------------------------------------- */
+.secao-projetos {
+  width: 100%;
+}
+
+.projetos {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 392px));
+  justify-content: center;
+  gap: var(--espaco-sm);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-xs);
+  padding: 15px; /* 16px do Figma menos 1px da borda */
+  border: 1px solid var(--cor-borda-suave);
+  border-radius: var(--raio);
+  background-color: var(--cor-superficie);
+}
+
+.card__imagem {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 360 / 140;
+  object-fit: cover;
+}
+
+.card__link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 24px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.card__link svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.card__link:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.card__link--em-breve {
+  text-decoration: none;
+  color: #757575;
+  cursor: default;
+}
+
+/* --------------------------------------------------------------------------
+   8. Redes sociais (GitHub e LinkedIn)
+   -------------------------------------------------------------------------- */
+.redes {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: var(--espaco-sm);
+  padding: var(--espaco-md);
+}
+
+.redes__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--raio);
+  color: #000000;
+  transition: background-color 0.2s ease;
+}
+
+.redes__link:hover {
+  background-color: var(--cor-superficie-hover);
+}
+
+.redes__link svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   9. Rodapé
+   -------------------------------------------------------------------------- */
+.rodape {
+  padding: var(--espaco-md);
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.rodape svg {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: -2px;
+}
+
+/* --------------------------------------------------------------------------
+   10. Acessibilidade
+   -------------------------------------------------------------------------- */
+a:focus-visible {
+  outline: 2px solid var(--cor-texto);
+  outline-offset: 2px;
+  border-radius: var(--raio);
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. Responsivo (tablet e celular)
+   -------------------------------------------------------------------------- */
+@media (max-width: 840px) {
+  .projetos {
+    grid-template-columns: minmax(0, 392px);
+    padding: 0 var(--espaco-md);
+  }
+
+  .sobre {
+    padding: 0 var(--espaco-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .botoes,
+  .redes,
+  .perfil {
+    padding-left: var(--espaco-sm);
+    padding-right: var(--espaco-sm);
+  }
+
+  .projetos,
+  .sobre {
+    padding: 0 var(--espaco-sm);
+  }
+}
