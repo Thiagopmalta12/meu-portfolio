@@ -4,7 +4,7 @@ Portfólio pessoal desenvolvido como primeiro desafio da trilha **Desenvolviment
 
 A página apresenta meu perfil e reúne meus projetos e certificados, seguindo o design disponibilizado no Figma (*Portfolio / Front-end*).
 
-![Prévia do portfólio](assets/img/projetos/portfolio.png)
+![Prévia do portfólio](portfolio.png)
 
 ## Páginas
 
@@ -41,21 +41,20 @@ As medidas foram tiradas diretamente do arquivo do Figma (frames de 1440 × 1024
 - Estado de foco visível para quem navega pelo teclado
 - Na página Sobre mim e na página Projetos, clicar na foto ou no nome volta para a página inicial
 
-## Estrutura de pastas
+## Arquivos
 
 ```
 meu-portfolio/
-├── index.html          # Página inicial
-├── sobre.html          # Página "Sobre mim"
-├── projetos.html       # Página "Veja meus projetos"
-├── css/
-│   └── style.css       # Todos os estilos
-└── assets/
-    └── img/
-        ├── fundo.jpg           # Fundo em degradê
-        ├── foto-perfil.png     # Minha foto
-        ├── favicon.svg         # Ícone da aba do navegador
-        └── projetos/           # Imagens dos cards de projeto
+├── index.html            # Página inicial
+├── sobre.html            # Página "Sobre mim"
+├── projetos.html         # Página "Veja meus projetos"
+├── style.css             # Todos os estilos
+├── fundo.jpg             # Fundo em degradê
+├── foto-perfil.png       # Minha foto
+├── favicon.svg           # Ícone da aba do navegador
+├── portfolio.png         # Imagem do card "Meu primeiro portfólio"
+├── sistema-cadastro.png  # Imagem do card "Sistema de Cadastro"
+└── em-breve.png          # Imagem dos cards dos próximos projetos
 ```
 
 ## Como abrir

@@ -87,7 +87,7 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: #ffffff url("../assets/img/fundo.jpg") center / cover no-repeat;
+  background: #ffffff url("fundo.jpg") center / cover no-repeat;
 }
 
 .container {
