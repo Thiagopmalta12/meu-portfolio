@@ -67,4 +67,4 @@ Conforme eu avançar no Programa Trilhas, vou adicionar novos projetos na págin
 
 ---
 
-Feito com ❤ por Seu Nome
+Feito com ❤ por Thiago malta 
